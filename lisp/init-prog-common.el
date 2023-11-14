@@ -10,6 +10,7 @@
     (add-hook (derived-mode-hook-name mode) #'breadcrumb-local-mode)))
 
 (add-hook 'prog-mode-hook #'hl-line-mode)
+(define-key prog-mode-map [f6] 'recompile)
 
 
 (provide 'init-prog-common)
