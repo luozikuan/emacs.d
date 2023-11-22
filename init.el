@@ -85,6 +85,7 @@
 (require 'init-projectile)
 
 (require 'init-markdown)
+(require 'init-json)
 (require 'init-org)
 (require 'init-prog-common)
 (require 'init-cpp)
