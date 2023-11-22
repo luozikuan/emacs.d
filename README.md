@@ -6,7 +6,7 @@ This is my emacs configuration for personal use. It is based on [Purcell's emacs
 3. If you have Github Copilot account, you can use it in Emacs, Copilot is enabled for c++-mode, python-mode, and gfm-mode(markdown).
 4. Wslg support, it will use [emacs-rime](https://github.com/DogLooksGood/emacs-rime).
 5. Magit and Projectile are enabled by default.
-6. Default font is `Cascadia Code`, and Font ligatures is enabled default.
+6. Font ligatures is enabled default.
 7. Use tuna mirror for melpa.
 
 ## Installation
