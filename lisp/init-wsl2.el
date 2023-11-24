@@ -19,10 +19,7 @@
     ;;     ln -sf ~/.local/share/fcitx5/rime ~/.emacs.d/rime
     ;; since emacs is the only app need ime, so its ok
     (when (maybe-require-package 'rime)
-      (setq default-input-method "rime"
-            rime-show-candidate 'posframe
-            rime-posframe-style 'vertical)
-      )
+      (setq default-input-method "rime"))
 
     ;; copy/paste using C-<insert>/S-<insert>
     (defun wsl-copy (start end)
