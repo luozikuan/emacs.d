@@ -13,8 +13,18 @@
   ;; DEL during isearch should edit the search string, not jump back to the previous result
   (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 
-  ;; Activate occur easily inside isearch
-  ;; to match ivy conventions
+  (defun consult-line-from-isearch ()
+    "Invoke `consult-line' from isearch."
+    (interactive)
+    (let ((query (if isearch-regexp
+                     isearch-string
+                   (regexp-quote isearch-string))))
+      (isearch-update-ring isearch-string isearch-regexp)
+      (let (search-nonincremental-instead)
+        (ignore-errors (isearch-done t t)))
+      (consult-line query)))
+
+  (define-key isearch-mode-map (kbd "C-o") 'consult-line-from-isearch)
   (define-key isearch-mode-map (kbd "C-c C-o") 'isearch-occur))
 
 ;; install rg
