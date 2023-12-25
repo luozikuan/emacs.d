@@ -83,6 +83,8 @@
 ;; Show matching parens
 (add-hook 'after-init-hook 'show-paren-mode)
 
+(add-hook 'after-init-hook 'repeat-mode)
+
 
 ;;; Handy key bindings
 
