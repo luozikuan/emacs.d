@@ -110,8 +110,8 @@
 
 ;; Shift lines up and down with M-up and M-down.
 (require-package 'move-dup)
-(global-set-key [M-up] 'move-dup-move-lines-up)
-(global-set-key [M-down] 'move-dup-move-lines-down)
+(global-set-key [M-S-up] 'move-dup-move-lines-up)
+(global-set-key [M-S-down] 'move-dup-move-lines-down)
 
 
 ;;; Cut/copy the current line if no region is active
