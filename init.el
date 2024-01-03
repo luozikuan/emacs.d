@@ -96,6 +96,7 @@
 
 (require 'init-copilot)
 (require 'init-packages)
+(require 'init-simple-dashboard)
 
 (require 'init-misc)
 
