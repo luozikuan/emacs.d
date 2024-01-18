@@ -84,7 +84,6 @@
   (buffer-disable-undo)
   (setq-local display-line-numbers nil)
   (setq-local truncate-lines t)
-  (setq-local mode-line-format nil)
   (setq-local global-hl-line-mode nil)
   (use-local-map simple-dashboard-mode-map))
 
@@ -175,7 +174,6 @@
 (defun simple-dashboard--insert-recent-files ()
   "Insert the first 9 recent files with icons in the simple-dashboard buffer."
   (recentf-mode)
-  (insert "\n")
   (let* ((files simple-dashboard-recentfiles)
          (left-margin (simple-dashboard--calculate-padding-left)))
     (dolist (file files)
@@ -193,7 +191,6 @@
 
 (defun simple-dashboard--insert-repositories ()
   "Insert Magit repositories in the simple-dashboard buffer."
-  (insert "\n")
   (let* ((repos simple-dashboard-repositories)
          (left-margin (simple-dashboard--calculate-padding-left)))
     (dolist (repo repos)
@@ -300,21 +297,21 @@
         (insert (make-string left-margin ?\ ))
         (insert-image image)
 
-        (insert "\n\n")
+        (insert "\n")
         (simple-dashboard--insert-text (propertize "Recent Files" 'face 'simple-dashboard-title-face))
         (simple-dashboard--insert-recent-files)
         (setq cursor-type nil)
-        (insert "\n\n")
+        (insert "\n")
 
         (simple-dashboard--insert-text (propertize "Magit Repositories" 'face 'simple-dashboard-title-face))
         (simple-dashboard--insert-repositories)
         (setq cursor-type nil)
-        (insert "\n\n")
+        (insert "\n")
 
         (simple-dashboard--insert-startup-time)
         (simple-dashboard--insert-package-info packages)
 
-        (insert "\n\n")
+        (insert "\n")
         (simple-dashboard--insert-centered (propertize (format-time-string "%A, %B %d %H:%M") 'face 'simple-dashboard-time-face))
         (switch-to-buffer simple-dashboard-buffer)
         (simple-dashboard-mode)
