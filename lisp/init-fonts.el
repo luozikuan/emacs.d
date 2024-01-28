@@ -43,6 +43,12 @@
 (add-hook 'window-setup-hook 'setup-fonts)
 (add-hook 'server-after-make-frame-hook 'setup-fonts)
 
+;; use valign to provide visual alignment for Org Mode table on windows
+(when (and sys/win32p
+           (maybe-require-package 'valign))
+  (require 'derived)
+  (dolist (mode '(org-mode markdown-mode gfm-mode))
+    (add-hook (derived-mode-hook-name mode) 'valign-mode)))
 
 (provide 'init-fonts)
 ;;; init-fonts.el ends here
