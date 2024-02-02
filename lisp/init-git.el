@@ -38,11 +38,6 @@
 (with-eval-after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
-
-(when sys/macp
-  (with-eval-after-load 'magit
-    (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)])))))
-
 
 (provide 'init-git)
 ;;; init-git.el ends here
