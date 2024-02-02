@@ -59,3 +59,4 @@ site-lisp/package/
 /projects
 /forge-*.sqlite
 /rime
+/projectile.cache
