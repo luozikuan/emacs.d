@@ -53,6 +53,7 @@ locate PACKAGE."
 ;;; Fire up package.el
 
 (setq package-enable-at-startup nil)
+(setq package-native-compile t)
 (package-initialize)
 
 
