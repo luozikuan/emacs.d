@@ -5,8 +5,9 @@
 
 
 ;; Misc config - yet to be placed in separate files
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq use-short-answers t)
+(if (boundp 'use-short-answers)
+    (setq use-short-answers t)
+  (fset 'yes-or-no-p 'y-or-n-p))
 
 
 (provide 'init-misc)
