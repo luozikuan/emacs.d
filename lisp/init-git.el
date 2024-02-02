@@ -38,6 +38,11 @@
 (with-eval-after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
+
+(with-eval-after-load 'magit
+  (when (maybe-require-package 'magit-todos)
+    (magit-todos-mode 1)))
+
 
 (provide 'init-git)
 ;;; init-git.el ends here
