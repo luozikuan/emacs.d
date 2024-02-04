@@ -84,7 +84,9 @@
 (require 'init-editing-utils)
 (require 'init-whitespace)
 (require 'init-git)
-(require 'init-wsl2)
+
+(when sys/wslp
+  (require 'init-wsl2))
 
 (require 'init-projectile)
 
