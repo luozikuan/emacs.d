@@ -37,6 +37,30 @@
 (global-set-key (kbd "C-x 3") (split-window-func-with-other-buffer 'split-window-horizontally))
 
 
+;; Rearrange split windows
+
+(defun split-window-horizontally-instead ()
+  "Kill any other windows and re-split such that the current window is on the top half of the frame."
+  (interactive)
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
+    (delete-other-windows)
+    (split-window-horizontally)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
+
+(defun split-window-vertically-instead ()
+  "Kill any other windows and re-split such that the current window is on the left half of the frame."
+  (interactive)
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
+    (delete-other-windows)
+    (split-window-vertically)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
+
+(global-set-key (kbd "C-x |") 'split-window-horizontally-instead)
+(global-set-key (kbd "C-x _") 'split-window-vertically-instead)
+
+
 ;; use shift + arrow keys to switch between visible buffers
 (require-package 'windmove)
 (windmove-default-keybindings 'control)
