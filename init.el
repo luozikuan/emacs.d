@@ -100,7 +100,7 @@
 
 (require 'init-copilot)
 (require 'init-packages)
-(require 'init-simple-dashboard)
+(require 'init-dashboard)
 
 (require 'init-misc)
 
