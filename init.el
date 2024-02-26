@@ -64,6 +64,8 @@
 ;; Load configs for specific features and modes
 (require-package 'diminish)
 
+(require 'init-frame-hooks)
+(require 'init-xterm)
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
