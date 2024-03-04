@@ -6,6 +6,7 @@
 ;; github copilot https://github.com/copilot-emacs/copilot.el
 (when (and (executable-find "node")
            (maybe-require-package 'dash)
+           (maybe-require-package 'f)
            (maybe-require-package 's)
            (maybe-require-package 'editorconfig)
            (maybe-require-package 'jsonrpc "1.0.23")
