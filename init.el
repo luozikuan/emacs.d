@@ -44,6 +44,7 @@
 ;; Bootstrap config
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
+(require 'init-utils)
 (require 'init-site-lisp)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
@@ -97,6 +98,7 @@
 (require 'init-org)
 (require 'init-prog-common)
 (require 'init-cpp)
+(require 'init-http)
 (require 'init-python)
 
 (require 'init-paredit)
