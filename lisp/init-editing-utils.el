@@ -92,7 +92,9 @@
 ;;; Handy key bindings
 
 (when (maybe-require-package 'avy)
-  (global-set-key (kbd "C-;") 'avy-goto-char-timer)
+  (if (display-graphic-p)
+    (global-set-key (kbd "C-;") 'avy-goto-char-timer)
+   (global-set-key (kbd "C-c ;") 'avy-goto-char-timer))
   (setq avy-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o)))
 
 (require-package 'multiple-cursors)

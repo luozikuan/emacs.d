@@ -27,7 +27,7 @@
     (corfu-popupinfo-mode))
 
   ;; Make Corfu also work in terminals, without disturbing usual behaviour in GUI
-  (when (and (display-graphic-p)
+  (when (and (not (display-graphic-p))
              (maybe-require-package 'corfu-terminal))
     (with-eval-after-load 'corfu
       (corfu-terminal-mode)))
