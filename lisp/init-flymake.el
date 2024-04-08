@@ -14,7 +14,7 @@
   (define-key flymake-mode-map (kbd "C-c ! p") 'flymake-goto-prev-error)
   (define-key flymake-mode-map (kbd "C-c ! c") 'flymake-start))
 
-(setq eldoc-documentation-function #'eldoc-documentation-compose)
+(setq eldoc-documentation-function 'eldoc-documentation-compose)
 (add-hook 'flymake-mode-hook
           (lambda ()
             (add-hook 'eldoc-documentation-functions 'flymake-eldoc-function nil t)))

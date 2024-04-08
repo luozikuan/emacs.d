@@ -80,6 +80,9 @@
     (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
 
 
+;;; Zap *up* to char is a handy pair for zap-to-char
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+
 ;; Show matching parens
 (add-hook 'after-init-hook 'show-paren-mode)
 
