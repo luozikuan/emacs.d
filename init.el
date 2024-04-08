@@ -5,7 +5,7 @@
 ;; a number of other files.
 
 ;;; Code:
-(let ((minver "29.1"))
+(let ((minver "28.1"))
   (when (version< emacs-version minver)
     (error "This config requires GNU Emacs %s or higher, but you're running %s" minver emacs-version)))
 
@@ -45,7 +45,7 @@
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (require 'init-utils)
-(require 'init-site-lisp)
+(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
 
@@ -56,6 +56,7 @@
   (add-hook 'after-init-hook (lambda ()
                                (gcmh-mode)
                                (diminish 'gcmh-mode))))
+
 (setq jit-lock-defer-time 0)
 
 
@@ -134,6 +135,7 @@
 (require 'init-local nil t)
 
 (provide 'init)
+
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
