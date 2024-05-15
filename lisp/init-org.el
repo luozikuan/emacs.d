@@ -61,6 +61,13 @@
       (sql . t)
       (sqlite . t)))))
 
+
+(when (maybe-require-package 'org-appear)
+  (add-hook 'org-mode-hook 'org-appear-mode)
+
+  (setq org-appear-autolinks t
+        org-appear-inside-latex t))
+
 
 (provide 'init-org)
 ;;; init-org.el ends here
