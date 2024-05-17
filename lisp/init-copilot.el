@@ -11,7 +11,7 @@
            (maybe-require-package 'editorconfig)
            (maybe-require-package 'jsonrpc "1.0.23")
            (require 'copilot nil t))
-  (dolist (mode '(c++-mode python-mode gfm-mode))
+  (dolist (mode '(c++-mode python-mode gfm-mode sh-mode))
     (add-hook (derived-mode-hook-name mode) 'copilot-mode))
   ;; (add-hook 'prog-mode-hook 'copilot-mode)
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
