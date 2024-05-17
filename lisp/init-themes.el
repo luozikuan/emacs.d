@@ -22,6 +22,20 @@
 
 (add-hook 'after-init-hook 'reapply-themes)
 
+;; Toggle between light and dark
+
+(defun light ()
+  "Activate a light color theme."
+  (interactive)
+  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (reapply-themes))
+
+(defun dark ()
+  "Activate a dark color theme."
+  (interactive)
+  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (reapply-themes))
+
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
