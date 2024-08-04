@@ -101,6 +101,7 @@
 (require 'init-cpp)
 (require 'init-http)
 (require 'init-python)
+(require 'init-nix)
 
 (require 'init-paredit)
 (require 'init-lisp)
@@ -114,6 +115,11 @@
 ;; Extra packages which don't require any configuration
 (add-hook 'after-init-hook 'global-eldoc-mode)
 (require 'init-direnv)
+
+(when (and (require 'treesit nil t)
+           (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (require 'init-treesitter))
 
 
 
