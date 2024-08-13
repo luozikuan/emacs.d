@@ -25,16 +25,15 @@
   (defun wsl-copy (start end)
     "Copy region to Windows clipboard."
     (interactive "r")
-    (let ((coding-system-for-write 'gbk))
-      (call-process-region start end "/mnt/c/Windows/System32/clip.exe" nil 0))
+    (call-process-region start end "/mnt/c/Windows/System32/clip.exe" nil 0)
     (deactivate-mark))
   (defun wsl-clipboard-to-string ()
     "Return Windows clipboard as string."
-    (let ((coding-system-for-read 'gbk))
-      (string-trim-right
+    (string-trim-right
        ;; FIXME: sometimes this cmd do not return, lead to ui fronzen
        (shell-command-to-string "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard")
-       "\n")))
+       "\n")
+    )
   (defun wsl-paste (arg)
     "Insert Windows clipboard at point. With prefix ARG, also add to kill-ring"
     (interactive "P")
