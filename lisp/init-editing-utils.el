@@ -92,9 +92,9 @@
 ;;; Handy key bindings
 
 (when (maybe-require-package 'avy)
-  (if (display-graphic-p)
-    (global-set-key (kbd "C-;") 'avy-goto-char-timer)
-   (global-set-key (kbd "C-c ;") 'avy-goto-char-timer))
+  ;; When emacs is running on Windows Terminal, `c-;' will be recognized as `;' or `ESC'
+  ;; Refer here for sulutions: https://github.com/microsoft/terminal/issues/3483#issuecomment-2106075360
+  (global-set-key (kbd "C-;") 'avy-goto-char-timer)
   (setq avy-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o)))
 
 (require-package 'multiple-cursors)
