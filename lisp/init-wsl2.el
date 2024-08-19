@@ -20,13 +20,14 @@
   (when (maybe-require-package 'rime)
     (setq default-input-method "rime")))
 
+(defun wsl-copy (start end)
+  "Copy region to Windows clipboard."
+  (interactive "r")
+  (call-process-region start end "/mnt/c/Windows/System32/clip.exe" nil 0)
+  (deactivate-mark))
+
 (when (featurep 'pgtk)
   ;; copy/paste using C-<insert>/S-<insert>
-  (defun wsl-copy (start end)
-    "Copy region to Windows clipboard."
-    (interactive "r")
-    (call-process-region start end "/mnt/c/Windows/System32/clip.exe" nil 0)
-    (deactivate-mark))
   (defun wsl-clipboard-to-string ()
     "Return Windows clipboard as string."
     (string-trim-right
@@ -44,6 +45,8 @@
   (global-set-key (kbd "S-<insert>") #'wsl-paste)
   )
 
+(unless (display-graphic-p)
+  (global-set-key (kbd "C-<insert>") #'wsl-copy))
 
 (provide 'init-wsl2)
 ;;; init-wsl2.el ends here
