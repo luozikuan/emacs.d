@@ -76,16 +76,6 @@
   )
 (add-hook 'c++-ts-mode-hook #'my-c++-ts-mode-hook)
 
-
-;; cmake
-(when (maybe-require-package 'cmake-mode)
-  (with-eval-after-load 'projectile
-    (setq projectile--cmake-manual-command-alist
-          '((:configure-command . "cmake -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -S . -B build")
-            (:compile-command . "cmake --build build --config Debug --target all")
-            (:test-command . "cmake --build build --target test")
-            (:install-command . "cmake --build build --target install")))))
-
 
 (provide 'init-cpp)
 ;;; init-cpp.el ends here
