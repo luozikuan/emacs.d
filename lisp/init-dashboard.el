@@ -18,6 +18,7 @@
       ;; dashboard-show-shortcuts nil
       dashboard-items '((recents  . 10)
                         (projects . 10)
+                        (bookmarks . 5)
                         )
       dashboard-projects-backend 'projectile
       dashboard-item-names '(("Projects:" . "Magit Projects:"))
@@ -26,14 +27,14 @@
       dashboard-navigator-buttons
       `(;; line1
         ((""
-          "Happy hacking!"
+          "Packages"
           "List packages"
           (lambda (&rest _) (list-packages)))
          )
         ;; line 2
         )
 
-      dashboard-startupify-list '(dashboard-insert-banner
+      dashboard-startupify-list '(;; dashboard-insert-banner
                                   dashboard-insert-newline
                                   ;; dashboard-insert-banner-title
                                   ;; dashboard-insert-newline
