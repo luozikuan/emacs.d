@@ -6,11 +6,29 @@
 
 (setq custom-safe-themes t)
 
-;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes
-              (if (display-graphic-p)
-                  '(sanityinc-tomorrow-day)
-                '(sanityinc-tomorrow-bright)))
+(defun set-default-theme (appearance)
+  "Load theme based on current system APPEARANCE."
+  (setq-default custom-enabled-themes
+                (pcase appearance
+                  ('light '(sanityinc-tomorrow-day))
+                  ('dark '(sanityinc-tomorrow-night)))))
+
+
+(defun determine-appearance ()
+  "Determine system appearance for theme."
+  (cond
+   (sys/win32p
+    (let* ((light-mode (string-trim (shell-command-to-string
+                                      "powershell -Command \"(Get-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -ErrorAction SilentlyContinue).AppsUseLightTheme\"")))
+           (appearance (if (equal light-mode "1")
+                           'light
+                         'dark)))
+      appearance))
+   ((display-graphic-p) 'light)
+   (t 'dark)))
+
+(set-default-theme (determine-appearance))
+
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
