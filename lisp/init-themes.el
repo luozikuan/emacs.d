@@ -11,7 +11,7 @@
   (setq-default custom-enabled-themes
                 (pcase appearance
                   ('light '(sanityinc-tomorrow-day))
-                  ('dark '(sanityinc-tomorrow-night)))))
+                  ('dark '(sanityinc-tomorrow-bright)))))
 
 
 (defun determine-appearance ()
