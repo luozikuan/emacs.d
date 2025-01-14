@@ -5,12 +5,7 @@
 
 ;; github copilot https://github.com/copilot-emacs/copilot.el
 (when (and (executable-find "node")
-           (maybe-require-package 'dash)
-           (maybe-require-package 'f)
-           (maybe-require-package 's)
-           (maybe-require-package 'editorconfig)
-           (maybe-require-package 'jsonrpc "1.0.23")
-           (require 'copilot nil t))
+           (maybe-require-package 'copilot))
   (dolist (mode '(c++-mode python-mode gfm-mode sh-mode))
     (add-hook (derived-mode-hook-name mode) 'copilot-mode))
   ;; (add-hook 'prog-mode-hook 'copilot-mode)
