@@ -11,7 +11,7 @@
   (setq-default custom-enabled-themes
                 (pcase appearance
                   ('light '(sanityinc-tomorrow-day))
-                  ('dark '(sanityinc-tomorrow-bright)))))
+                  ('dark '(sanityinc-tomorrow-night)))))
 
 
 (defun determine-appearance ()
@@ -45,13 +45,13 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (set-default-theme 'light)
   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (set-default-theme 'dark)
   (reapply-themes))
 
 
