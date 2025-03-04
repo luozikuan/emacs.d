@@ -6,6 +6,47 @@
 
 (setq custom-safe-themes t)
 
+(defvar light-theme 'sanityinc-tomorrow-day
+  "Default dark theme.")
+
+(defvar dark-theme 'sanityinc-tomorrow-night
+  "Default light theme.")
+
+(when sys/linuxp
+  (defun theme-from-dbus (value)
+    "Change the theme based on a D-Bus property.
+
+VALUE should be an integer or an arbitrarily nested list that
+contains an integer.  When VALUE is equal to 2 then a light theme
+will be selected, otherwise a dark theme will be selected."
+    (load-theme (if (= 2 (car (flatten-list value)))
+                    light-theme
+                  dark-theme)
+                t))
+
+  (require 'dbus)
+  ;; Set the current theme based on what the system theme is right now:
+  (dbus-call-method-asynchronously
+   :session "org.freedesktop.portal.Desktop"
+   "/org/freedesktop/portal/desktop"
+   "org.freedesktop.portal.Settings"
+   "Read"
+   #'theme-from-dbus
+   "org.freedesktop.appearance"
+   "color-scheme")
+
+  ;; Register to be notified when the system theme changes:
+  (dbus-register-signal
+   :session "org.freedesktop.portal.Desktop"
+   "/org/freedesktop/portal/desktop"
+   "org.freedesktop.portal.Settings"
+   "SettingChanged"
+   (lambda (path var value)
+     (when (and (string-equal path "org.freedesktop.appearance")
+                (string-equal var "color-scheme"))
+       (theme-from-dbus value))))
+  )
+
 (defun set-default-theme (appearance)
   "Load theme based on current system APPEARANCE."
   (setq-default custom-enabled-themes
