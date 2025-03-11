@@ -14,6 +14,7 @@
   (auto-dark-themes '((sanityinc-tomorrow-night) (sanityinc-tomorrow-day)))
   :init
   (auto-dark-mode)
+  (diminish 'auto-dark-mode)
   ;; Toggle between light and dark
   (defun light ()
     "Activate a light color theme."
