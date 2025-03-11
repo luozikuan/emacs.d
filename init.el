@@ -111,6 +111,7 @@
 (require 'init-dashboard)
 
 (require 'init-misc)
+(require 'init-terminals)
 
 ;; Extra packages which don't require any configuration
 (add-hook 'after-init-hook 'global-eldoc-mode)
