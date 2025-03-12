@@ -42,7 +42,8 @@
    (seq-filter
     (lambda (pair)
       (locate-library (concat "ob-" (symbol-name (car pair)))))
-    '((R . t)
+    '((C . t)
+      (R . t)
       (ditaa . t)
       (dot . t)
       (emacs-lisp . t)
