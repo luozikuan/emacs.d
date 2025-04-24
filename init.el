@@ -107,6 +107,7 @@
 (require 'init-lisp)
 
 (require 'init-copilot)
+(require 'init-gptel)
 (require 'init-packages)
 (require 'init-dashboard)
 
