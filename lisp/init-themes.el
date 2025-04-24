@@ -2,20 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package color-theme-sanityinc-tomorrow
+(unless sys/wslp
+  (use-package auto-dark
   :ensure t
   :custom
-  (custom-safe-themes t))
-
-(use-package auto-dark
-  :ensure t
-  :after color-theme-sanityinc-tomorrow
-  :custom
-  (auto-dark-themes '((sanityinc-tomorrow-night) (sanityinc-tomorrow-day)))
+  (custom-safe-themes t)
+  (auto-dark-themes '((modus-vivendi-tinted) (modus-operandi-tinted)))
   :init
-  (unless sys/wslp
-    (auto-dark-mode)
-    (diminish 'auto-dark-mode))
+  (auto-dark-mode)
+  (diminish 'auto-dark-mode)
 
   ;; Toggle between light and dark
   (defun light ()
@@ -27,7 +22,7 @@
     "Activate a dark color theme."
     (interactive)
     (auto-dark--set-theme 'dark))
-  )
+  ))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
