@@ -5,7 +5,7 @@
 ;; a number of other files.
 
 ;;; Code:
-(let ((minver "28.1"))
+(let ((minver "29.1"))
   (when (version< emacs-version minver)
     (error "This config requires GNU Emacs %s or higher, but you're running %s" minver emacs-version)))
 
