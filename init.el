@@ -86,6 +86,7 @@
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-editing-utils)
+(require 'init-general)
 (require 'init-whitespace)
 (require 'init-git)
 
