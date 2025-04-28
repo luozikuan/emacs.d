@@ -10,5 +10,14 @@
   (fset 'yes-or-no-p 'y-or-n-p))
 
 
+(defun calc-eval-line-or-region ()
+  "Evaluate math expr in line or the selected region."
+  (interactive)
+  (let ((expr (if (use-region-p)
+                  (buffer-substring-no-properties (region-beginning) (region-end))
+                (thing-at-point 'line t))))
+    (message "Result: %s" (calc-eval expr))))
+
+
 (provide 'init-misc)
 ;;; init-misc.el ends here

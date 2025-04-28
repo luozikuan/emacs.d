@@ -57,6 +57,7 @@
 
   "t"  '(:ignore t :wk "tools")
   "t t" 'eat-other-window
+  "t c" 'calc-eval-line-or-region
 
   "w"  '(:ignore t :wk "windows")
   "w m" 'toggle-frame-maximized
