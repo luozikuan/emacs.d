@@ -33,7 +33,7 @@
   "b"  '(:ignore t :wk "buffers")
   "b b" 'switch-to-buffer
   "b B" 'ibuffer
-  "b k" 'kill-buffer
+  "b k" 'bury-buffer
   "b s" 'scratch-buffer
   "b d" 'dashboard-open
   "b r" 'revert-buffer
