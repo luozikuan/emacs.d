@@ -51,7 +51,7 @@
   "p" '(:keymap projectile-command-map :wk "projectile" :package projectile)
 
   "s" '(:ignore t :wk "search")
-  "s s" 'isearch-forward
+  "s s" 'consult-line-from-isearch
   "s S" 'isearch-forward-regexp
   "s h" 'anzu-query-replace
 
