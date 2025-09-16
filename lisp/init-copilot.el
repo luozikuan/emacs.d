@@ -5,6 +5,7 @@
 ;; only use copilot when node is installed
 (when (executable-find "node")
   (use-package copilot
+    :ensure t
     :hook (prog-mode . copilot-mode)
     :config
     (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
