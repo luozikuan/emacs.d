@@ -8,11 +8,16 @@
 
 
   (when (maybe-require-package 'consult)
-    (when (and (executable-find "rg"))
-      (defun sanityinc/consult-ripgrep-at-point (&optional dir initial)
-        (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
-                                        (symbol-name s))))
+	(defun sanityinc/consult-ripgrep-at-point (&optional dir initial)
+        (interactive (list prefix-arg
+						   (if (use-region-p)
+							   (buffer-substring-no-properties
+								(region-beginning) (region-end))
+							 (if-let ((s (symbol-at-point)))
+                                 (symbol-name s)))))
         (consult-ripgrep dir initial))
+
+    (when (executable-find "rg")
       (global-set-key (kbd "M-?") 'sanityinc/consult-ripgrep-at-point))
 
     (global-set-key [remap switch-to-buffer] 'consult-buffer)
