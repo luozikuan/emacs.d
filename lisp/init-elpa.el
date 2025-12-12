@@ -15,6 +15,9 @@
                          ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
                          ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
+;; Allow built-in packages to be upgraded
+(setq package-install-upgrade-built-in t)
+
 
 ;;; On-demand installation of packages
 
