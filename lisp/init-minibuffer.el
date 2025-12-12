@@ -13,7 +13,7 @@
 						   (if (use-region-p)
 							   (buffer-substring-no-properties
 								(region-beginning) (region-end))
-							 (if-let ((s (symbol-at-point)))
+							 (if-let* ((s (symbol-at-point)))
                                  (symbol-name s)))))
         (consult-ripgrep dir initial))
 
