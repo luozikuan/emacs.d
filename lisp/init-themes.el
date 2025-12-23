@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(unless sys/wslp
+(when (display-graphic-p)
   (use-package color-theme-sanityinc-tomorrow
     :ensure t
     :custom
@@ -12,6 +12,7 @@
     :ensure t
     :custom
     (auto-dark-themes '((sanityinc-tomorrow-night) (sanityinc-tomorrow-day)))
+	(auto-dark-allow-powershell t) ;; wsl2 can use powershell to switch
     :init
     (auto-dark-mode)
     (diminish 'auto-dark-mode)
