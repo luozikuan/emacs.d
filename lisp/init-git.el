@@ -22,6 +22,7 @@
 
 (when (maybe-require-package 'magit)
   (setq-default magit-diff-refine-hunk 'all)
+  (setq-default magit-diff-visit-prefer-worktree t)
   (setq-default magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 12))
   (add-hook 'git-commit-setup-hook 'turn-off-auto-fill t)
 
