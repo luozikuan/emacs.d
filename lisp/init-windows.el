@@ -76,5 +76,9 @@
 (windmove-default-keybindings 'control)
 
 
+(when (maybe-require-package 'pulsar)
+  (setq-default pulsar-pulse-region-functions nil)
+  (pulsar-global-mode t))
+
 (provide 'init-windows)
 ;;; init-windows.el ends here
