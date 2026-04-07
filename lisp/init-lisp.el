@@ -29,6 +29,10 @@
 
 (setq load-prefer-newer t)
 
+
+(with-eval-after-load 'page-break-lines
+  (add-to-list 'page-break-lines-modes 'emacs-lisp-compilation-mode))
+
 
 (defun enable-check-parens-on-save ()
   "Run `check-parens' when the current buffer is saved."
