@@ -108,7 +108,6 @@
 (require 'init-lisp)
 
 (require 'init-copilot)
-(require 'init-gptel)
 (require 'init-claude-code)
 (require 'init-packages)
 (require 'init-dashboard)
