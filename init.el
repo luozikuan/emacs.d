@@ -107,6 +107,7 @@
 (require 'init-paredit)
 (require 'init-lisp)
 
+(require 'init-codex)
 (require 'init-packages)
 (require 'init-dashboard)
 
