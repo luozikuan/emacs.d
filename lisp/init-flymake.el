@@ -17,7 +17,7 @@
 (setq eldoc-documentation-function 'eldoc-documentation-compose)
 (add-hook 'flymake-mode-hook
           (lambda ()
-            (add-hook 'eldoc-documentation-functions 'flymake-eldoc-function nil t)))
+            (add-to-list 'eldoc-documentation-functions 'flymake-eldoc-function)))
 
 
 (provide 'init-flymake)
