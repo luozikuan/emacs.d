@@ -107,7 +107,6 @@
 (require 'init-paredit)
 (require 'init-lisp)
 
-(require 'init-claude-code)
 (require 'init-packages)
 (require 'init-dashboard)
 
