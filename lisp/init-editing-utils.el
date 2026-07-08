@@ -145,6 +145,9 @@
     (setq vundo-roll-back-on-quit nil
           vundo-glyph-alist vundo-unicode-symbols)))
 
+(when (maybe-require-package 'expreg)
+  (global-set-key (kbd "C-=") 'expreg-expand)
+  (global-set-key (kbd "C--") 'expreg-contract))
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
