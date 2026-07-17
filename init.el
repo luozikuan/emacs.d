@@ -116,7 +116,7 @@
 
 ;; Extra packages which don't require any configuration
 (add-hook 'after-init-hook 'global-eldoc-mode)
-(require 'init-direnv)
+(require 'init-mise)
 
 (when (and (require 'treesit nil t)
            (fboundp 'treesit-available-p)
